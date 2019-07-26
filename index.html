@@ -11,5 +11,26 @@
 </head>
 <body>
     <h1>Registration numbers</h1>
+    <div class ="col-11">Name
+        <input type="text" class="regName"  placeholder="Enter your Registration" name="" value="" id="field_1"> 
+    </div>
+    <div class = "col-10">
+            <button id="addButton" type="button" name="Add" value="add">Add</button>
+     </div>
+
+     <div class = "col-9">
+        <input type="radio" name="regNumber" class="RegTypeRadio" value="Capetown" id="CAid">Capetown
+        <input type="radio" name="regNumber" class="RegTypeRadio" value="Wellington" id="CNid">Wellington
+        <input type="radio" name="regNumber" class="RegTypeRadio" value="Stellenbosch" id="CLid">Stellenbosch
+
+     </div>
+  
+     <div class ="col-8">
+            <button class="showButton" type="button" name="show" value="Show">Show</button>
+     </div>
+     <div class="col-7">
+     <ul class="numberPlates"></ul>
+     </div>
+    <script src="reg-dom.js"></script>
 </body>
 </html>

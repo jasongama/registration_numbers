@@ -1,0 +1,57 @@
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104,104,104, 0.8);
+    }
+    h1{
+        border: 5px solid blue;
+        width: 600px;
+        margin: 60px auto;
+       text-align: center;
+       
+   }
+   
+.col-11 {
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .col-10 {
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .col-9{
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .col-8{
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .col-7{
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .col-7 ul{
+    list-style-type: none;
+  
+  }
+   li{
+  background: yellow;
+   border: black solid;
+   border-radius: 5px;
+   justify-content: center ;
+   display: inline;
+   margin-left: 2em;
+  }
+  button {
+    border-radius: 5px;
+    justify-content: center ;
+    display: inline;
+    margin-left: 2em;
+  }
