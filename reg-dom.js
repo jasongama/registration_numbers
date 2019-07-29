@@ -1,3 +1,4 @@
+var regValues = RegFactory();
 
 function regElement() {
 var regNumber= document.querySelector(".regName").value
@@ -7,6 +8,7 @@ li.innerHTML=regNumber;
 var newli = document.querySelector(".numberPlates");
 
 newli.appendChild(li);
+
 
 }
 addButton = document.querySelector("#addButton")
