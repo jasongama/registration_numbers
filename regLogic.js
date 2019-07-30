@@ -1,46 +1,50 @@
-function RegFactory(numberplates){
-    var storePlate = numberplates;
+function RegFactory(){
+   
     var holdingNoPlate =[];
 
 
     function addRegNumbers(plate){
-        plates=plate.toUpperCase();
-        storePlate.push(plates);
+        
+        holdingNoPlate.push(plate);
 
     }
+    function getReg(){
+        return holdingNoPlate;
+    }
+
+   
     function setTown(town){
-        if(town === "CA"){
+        
+        if(town == "CA"){
             return "CapeTown";
         }
-        else if(town === "CN"){
-            return "Wellington";
+        else if(town ==  "Wellington"){
+            return "CN";
         }
-        else if(town === "CL"){
-            return "Stellenbosch";
+        else if(town == "Stellenbosch"){
+            return "CL";
         }
         else{
             return "invalid";
         }
-
+        
 
     }
     
-    function fliter(town){
-     var unsortedPlate= numberplates;
+    function filter(regStart){
      
-     if(town == "allTowns"){
-         return unsortedPlate;
-     }
-     else{
-         for(var i=0; i= unsortedPlate.length; i++ ){
-          
-            if (unsortedPlate[i].startWidth(town))
-            holdingNoPlate.push(unsortedPlate[i])
-         }
+     var storeNumberPlate = [];
+     console.log(storeNumberPlate);
 
+         for(var i=0; i= holdingNoPlate.length; i++ ){
+            var currentNumber = holdingNoPlate[i];
+            if (holdingNoPlate[i].startWidth(regStart)){
+             currentNumber.push(storeNumberPlate)
+            }
+            
      }
 
-     return unsortedPlates
+     return storeNumberPlate;
     }
     
     
@@ -48,7 +52,8 @@ function RegFactory(numberplates){
     return{
         addRegNumbers,
         setTown,
-        fliter
+        getReg,
+        filter
 
     }
 }
