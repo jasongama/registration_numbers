@@ -1,39 +1,45 @@
-function RegFactory(){
-   
-    var holdingNoPlate =[];
+function RegFactory() {
+
+    var holdingNoPlate = [];
 
 
-    function addRegNumbers(plate){
-        
+    function addRegNumbers(plate) {
+
         holdingNoPlate.push(plate);
 
     }
-    function getReg(){
+
+    function getReg() {
         return holdingNoPlate;
     }
 
-   
 
-    function filter(loc){
-     
-     var storeNumberPlate = [];
 
-         for(var i=0; i < holdingNoPlate.length; i++ ){
+    function filter(location) {
+
+        var storeNumberPlate = [];
+
+        for (var i = 0; i < holdingNoPlate.length; i++) {
             var currentNumber = holdingNoPlate[i];
-            if (holdingNoPlate[i].startWidth(loc)){
+
+            if (currentNumber.startsWith(location)) {
                 storeNumberPlate.push(currentNumber)
             }
-            
-     }
+            //find a way to get the first 2 caracters of the current reg
+            //create a var called that will hold these characters
+            //var loc = currentNumber.substring(0, 2);
 
-     return storeNumberPlate;
+        }
+
+        console.log(storeNumberPlate)
+
+        return storeNumberPlate;
     }
-    
-    
-    
-    return{
+
+
+    console.log(holdingNoPlate)
+    return {
         addRegNumbers,
-        setTown,
         getReg,
         filter
 
