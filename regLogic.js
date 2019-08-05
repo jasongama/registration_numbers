@@ -1,22 +1,25 @@
 function RegFactory() {
 
     var holdingNoPlate = [];
-    
+    var regi;
 
     function addRegNumbers(plate) {
         var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
           var test = regex.test(plate)
             if(test === false){
-          console.log(test);
-        if(!holdingNoPlate.includes(plate)){
-            holdingNoPlate.push(plate)
+        //  console.log(test);
+
+        regi = plate;
+       // if(!holdingNoPlate.includes(regi)){
+            holdingNoPlate.push(regi)
+        //    return regi;
         }
             }
-            else{
-                alert('wrong')
-            }
+            // else{
+            //     alert('wrong')
+            // }
     
-    }
+
 
     function getReg() {
         
@@ -24,12 +27,14 @@ function RegFactory() {
         
     }
 
+    function  getRegi(){
+        return regi;
+    }
+       
 
 
-    function filter(location, reg) {
-        if(reg){
-            reg = getReg();
-        }
+    function filter(location) {
+    
         var storeNumberPlate = [];
 
         for (var i = 0; i < holdingNoPlate.length; i++) {
@@ -40,16 +45,15 @@ function RegFactory() {
             }
         
         }
-
-        
-
+console.log(storeNumberPlate)
         return storeNumberPlate;
     }
  
-    // console.log(storeNumberPlate)
+    console.log(holdingNoPlate)
     return {
         addRegNumbers,
         getReg,
+        getRegi,
         filter
 
     }

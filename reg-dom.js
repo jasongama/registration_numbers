@@ -5,13 +5,12 @@ var regNumber = document.querySelector(".regName")
 var regValues = RegFactory();
 
 var regFactoryInstance = RegFactory();
-var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
 
 function regElement() {
-    regName = "";
+    
     var regNumber = document.querySelector(".regName").value
      let li = document.createElement('li')
-    regFactoryInstance.addRegNumbers(regNumber)
+    // regFactoryInstance.addRegNumbers(regNumber)
     li.innerHTML = regFactoryInstance.getReg();
     var newli = document.querySelector(".numberPlates");
 
@@ -21,13 +20,19 @@ function regElement() {
 
 
 function display() {
+    var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
 
+    if(RegTypeRadio){
+       var val = RegTypeRadio.value
+    }
+regFactoryInstance.filter(val)
 
-   var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
+  
    var newli = document.querySelector(".numberPlates");
-   
-  newli.innerHTML= regFactoryInstance.filter([], RegTypeRadio.value)
-
+   let li = document.createElement('li')
+   li.innerHTML= regFactoryInstance.filter(RegTypeRadio.value)
+  
+  newli.appendChild(li);
     }
 
 
