@@ -1,22 +1,35 @@
 function RegFactory() {
 
     var holdingNoPlate = [];
-
+    
 
     function addRegNumbers(plate) {
-
-        holdingNoPlate.push(plate);
-
+        var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
+          var test = regex.test(plate)
+            if(test === false){
+          console.log(test);
+        if(!holdingNoPlate.includes(plate)){
+            holdingNoPlate.push(plate)
+        }
+            }
+            else{
+                alert('wrong')
+            }
+    
     }
 
     function getReg() {
+        
         return holdingNoPlate;
+        
     }
 
 
 
-    function filter(location) {
-
+    function filter(location, reg) {
+        if(reg){
+            reg = getReg();
+        }
         var storeNumberPlate = [];
 
         for (var i = 0; i < holdingNoPlate.length; i++) {
@@ -25,19 +38,15 @@ function RegFactory() {
             if (currentNumber.startsWith(location)) {
                 storeNumberPlate.push(currentNumber)
             }
-            //find a way to get the first 2 caracters of the current reg
-            //create a var called that will hold these characters
-            //var loc = currentNumber.substring(0, 2);
-
+        
         }
 
-        console.log(storeNumberPlate)
+        
 
         return storeNumberPlate;
     }
-
-
-    console.log(holdingNoPlate)
+ 
+    // console.log(storeNumberPlate)
     return {
         addRegNumbers,
         getReg,
