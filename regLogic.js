@@ -6,14 +6,14 @@ function RegFactory() {
 
     function addRegNumbers(plate) {
         var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
-        var test = regex.test(plate)
+        var test = regex.test(plate2)
+        var plate2  =  plate.toUpperCase().trim()
+        if (test === false && plate2.length > 0) {
 
-        if (test === false && plate.length > 0) {
-
-            if (plate.startsWith('CA ') || plate.startsWith("CN ") || plate.startsWith("CL ")) {
-
-                if (!holdingNoPlate.includes(plate)) {
-                    holdingNoPlate.push(plate)
+            if (plate2.startsWith('CA ') || plate2.startsWith("CN ") || plate2.startsWith("CL ")) {
+                if (!holdingNoPlate.includes(plate2)) {
+                    holdingNoPlate.push(plate2)
+                    console.log(plate2)
 
                 }
 
@@ -47,8 +47,9 @@ function RegFactory() {
         var storeNumberPlate = [];
 
         for (var i = 0; i < holdingNoPlate.length; i++) {
+            var currentReg= holdingNoPlate[i]
             if (holdingNoPlate[i].startsWith(location)) {
-                storeNumberPlate.push(holdingNoPlate[i])
+                storeNumberPlate.push(currentReg)
             }
 
         }
