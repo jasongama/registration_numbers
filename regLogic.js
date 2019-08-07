@@ -1,34 +1,33 @@
 function RegFactory() {
 
     var holdingNoPlate = [];
-    var regi;
-    var regEmpty= "";
+
+    var regEmpty = "";
 
     function addRegNumbers(plate) {
         var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
         var test = regex.test(plate)
-     
+
         if (test === false && plate.length > 0) {
-           
-            if(plate.startsWith('CA ') || plate.startsWith("CN ") || plate.startsWith("CL ")){
-             
-            if(!holdingNoPlate.includes(plate)){
-            holdingNoPlate.push(plate)
+
+            if (plate.startsWith('CA ') || plate.startsWith("CN ") || plate.startsWith("CL ")) {
+
+                if (!holdingNoPlate.includes(plate)) {
+                    holdingNoPlate.push(plate)
+
+                }
+
 
             }
-            
-    
-    }
-    }
-     
-    // else{
-    //     alert('wrongfdhtdh')
-    // }
+        } 
+        else {
+            alert("invalide  registration")
+        }
 
 
-    // else{
-    //     alert('wrong')
-    // }
+        // else{
+        //     return " remove the of token"
+        //  }
     }
 
 
@@ -39,11 +38,7 @@ function RegFactory() {
 
     }
 
-    function getRegi() {
-        return regi;
-    }
-
-    function regsEmpty(){
+    function regsEmpty() {
         return regEmpty;
     }
 
@@ -57,15 +52,14 @@ function RegFactory() {
             }
 
         }
-    console.log(storeNumberPlate)
+        console.log(storeNumberPlate)
         return storeNumberPlate;
     }
 
-   
+
     return {
         addRegNumbers,
         getReg,
-        getRegi,
         filter,
         regsEmpty
 
