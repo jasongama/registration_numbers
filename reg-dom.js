@@ -1,39 +1,51 @@
 var showButton = document.querySelector(".showButton")
 addButton = document.querySelector("#addButton")
-
+var resetButton = document.querySelector(".resetButton")
 var regNumber = document.querySelector(".regName")
-
+var errorMessage = document.querySelector(".error");
 var regValues = RegFactory();
-
+var regstorage = JSON.parse(localStorage.getItem("plate"));
 var regFactoryInstance = RegFactory();
 
+function clearError() {
+	setTimeout(function () {
+		errorMessage.innerHTML = "";
+	}, 6000);
+}
+
 function regElement() {
-
-    var regNumber = document.querySelector(".regName").value 
-        
-    let li = document.createElement('li')
-    regFactoryInstance.addRegNumbers(regNumber)
+    var regNumbersElement = document.querySelector(".numberPlates");
     
-    var regList = regFactoryInstance.getReg();
 
-    for (var i = 0; i < regList.length; i++) {
-        if ((regList[i])) {
-            li.innerHTML = regList[i]
-        }
+    var regNumber = document.querySelector(".regName").value
+    regNumber = regNumber.toUpperCase();
+
+    var didAddRegNumber = regFactoryInstance.addRegNumbers(regNumber);
+    if (didAddRegNumber) {
+        
+        let li = document.createElement('li')
+        li.innerHTML = regNumber;
+        regNumbersElement.appendChild(li)
+
+    } else {
+       regNumbersElement.innerHTML  =regFactoryInstance.getErrorMessage()
+        
     }
- 
-   
-    var newli = document.querySelector(".numberPlates");
+    localStorage.setItem("plate", JSON.stringify(regFactoryInstance.getReg()))
 
-    newli.appendChild(li);
+
+
+
+
+
 
 }
-     
+
 
 
 
 function display() {
-    
+
     var newli = document.querySelector(".numberPlates");
 
     if (newli.hasChildNodes()) {
@@ -41,30 +53,23 @@ function display() {
     }
 
     var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
-//  for(var i = 0; i< RegTypeRadio.length; i++){
-//     RegTypeRadio[i]
 
-//     if(RegTypeRadio){
-//         regFactoryInstance.filter(RegTypeRadio.value)
-//     }
+    var n = regFactoryInstance.filter(RegTypeRadio.value)
+
+    for (var i = 0; i < n.length; i++) {
+        var li = document.createElement('li')
+        li.innerHTML = n[i];
+
+        newli.appendChild(li);
+    }
+
+    
+}
+function resetButton() {
+    localStorage.clear();
+    regNumbersElement.innerHTML = "";
    
-
-// }
-
-var n = regFactoryInstance.filter(RegTypeRadio.value)
-var y;
-for(var i=0; i<n.length; i++){
-y  = n[i];
-
 }
-var li = document.createElement('li')
-li.innerHTML = y;
-
-  //  console.log(li.innerHTML)
-
-    newli.appendChild(li);
-}
-
 
 
 addButton.addEventListener("click", regElement)

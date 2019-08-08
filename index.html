@@ -12,6 +12,7 @@
 <body>
     <h1>Registration numbers</h1>
     <div class ="col-11">Name
+         
         <input type="text" class="regName"  placeholder="Enter your Registration" name="" value="" id="field_1" maxlength=11 > 
     </div>
     <div class = "col-10">
@@ -22,16 +23,17 @@
         <input type="radio" name="regNumber" class="RegTypeRadio" value="CA" id="id">CapeTown
         <input type="radio" name="regNumber" class="RegTypeRadio" value="CN" id="id">Wellington
         <input type="radio" name="regNumber" class="RegTypeRadio" value="CL" id="id">Stellenbosch
+        <input type="radio" name="regNumber" class="RegTypeRadio" Value="" id="id">SelectAll
 
      </div>
   
      <div class ="col-8">
-            <button class="showButton" type="button" name="show" value="Show">Show</button>
+            <button class="showButton" type="button" name="show" value="Show">FILTER</button>
      </div>
-     <div class ="col- 6">
-        <button class="showAllButton" type="button" name="show" value="ShowAll">ShowAllRegistration</button>
- </div>
-
+     
+     <div class ="col-8">
+            <button class="resetButton" type="button" name="reset" value="Show">Reset</button>
+     </div>
 
      <div class="col-7">
      <ul class="numberPlates"></ul>

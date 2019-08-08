@@ -2,32 +2,33 @@ function RegFactory() {
 
     var holdingNoPlate = [];
 
-    var regEmpty = "";
+    var errMessage = "";
 
     function addRegNumbers(plate) {
         var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
-        var test = regex.test(plate2)
-        var plate2  =  plate.toUpperCase().trim()
-        if (test === false && plate2.length > 0) {
+        var test = regex.test(plate)
+        errMessage = "";
+        if (test === false && plate.length > 0) {
 
-            if (plate2.startsWith('CA ') || plate2.startsWith("CN ") || plate2.startsWith("CL ")) {
-                if (!holdingNoPlate.includes(plate2)) {
-                    holdingNoPlate.push(plate2)
-                    console.log(plate2)
-
+            if (plate.startsWith('CA ') || plate.startsWith("CN ") || plate.startsWith("CL ")) {
+                if (!holdingNoPlate.includes(plate)) {
+                    holdingNoPlate.push(plate)
+                    return true;
                 }
-
-
+                
+            } else {
+                // this is not a valid town
+                errMessage = "invalid town";
+                return false;
             }
-        } 
-        else {
-            alert("invalide  registration")
+        } else {
+            // invalid format
+            errMessage = "please add the registration number and Select a location";
+            return false;
         }
-
-
-        // else{
-        //     return " remove the of token"
-        //  }
+        
+        
+ 
     }
 
 
@@ -38,23 +39,24 @@ function RegFactory() {
 
     }
 
-    function regsEmpty() {
-        return regEmpty;
-    }
 
     function filter(location) {
 
         var storeNumberPlate = [];
 
         for (var i = 0; i < holdingNoPlate.length; i++) {
-            var currentReg= holdingNoPlate[i]
+            var currentReg = holdingNoPlate[i]
             if (holdingNoPlate[i].startsWith(location)) {
                 storeNumberPlate.push(currentReg)
             }
 
         }
-        console.log(storeNumberPlate)
+        // console.log(storeNumberPlate)
         return storeNumberPlate;
+    }
+
+    function getErrorMessage() {
+        return errMessage;
     }
 
 
@@ -62,7 +64,7 @@ function RegFactory() {
         addRegNumbers,
         getReg,
         filter,
-        regsEmpty
+        getErrorMessage
 
     }
 }
