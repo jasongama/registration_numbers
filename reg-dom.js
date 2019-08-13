@@ -2,7 +2,7 @@ var showButton = document.querySelector(".showButton")
 addButton = document.querySelector("#addButton")
 var resetButton = document.querySelector(".resetButton")
 var regNumber = document.querySelector(".regName")
-var errorMessage = document.querySelector(".error");
+var errorMessage = document.querySelector(".numberPlates");
 var regValues = RegFactory();
 var regstorage = JSON.parse(localStorage.getItem("plate"));
 var regFactoryInstance = RegFactory();
@@ -10,7 +10,7 @@ var regFactoryInstance = RegFactory();
 function clearError() {
 	setTimeout(function () {
 		errorMessage.innerHTML = "";
-	}, 6000);
+	}, 1000);
 }
 
 function regElement() {
@@ -29,7 +29,7 @@ function regElement() {
 
     } else {
        regNumbersElement.innerHTML  =regFactoryInstance.getErrorMessage()
-        
+       clearError()
     }
     localStorage.setItem("plate", JSON.stringify(regFactoryInstance.getReg()))
 

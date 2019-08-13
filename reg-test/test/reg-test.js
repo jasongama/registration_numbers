@@ -1,19 +1,25 @@
 describe('Registration', function () {
     it("It should pass all the registrations in a list", function () {
         var input =  RegFactory();
-        input.addRegNumbers("CA 1234")
+        input.addRegNumbers ("CA 123");
+        input.addRegNumbers ("CN 433");
+        input.addRegNumbers ("CL 453");
+
         
-    
-    
-        assert.equal(input. getReg(), "CA 1234", );
+       
+        assert.deepEqual( [ 'CA 123', 'CN 433', 'CL 453' ] , input.getReg());
 
     });
-    // it("It should greet my name in english", function () {
-    //     var input =  RegFactory();
-    //     input.addRegNumbers(["CA1234",  "CL2345" ])
-    
-    //     assert.equal(input. filter(), "CA1234");
 
-    // });
+    it("I", function () {
+        var input =  RegFactory();
+        input.addRegNumbers ("CA 123");
+        input.addRegNumbers ("CN 433");
+        input.addRegNumbers ("CL 453");
+        input.addRegNumbers ("CL 453");
+    
+        assert.equal(input. filter(), "CL 1234");
+
+    });
 
 });
