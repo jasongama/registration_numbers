@@ -45,7 +45,7 @@ describe('Registration', function () {
         assert.deepEqual(  "please add the registration number and Select a location" , input.getErrorMessage());
 
     });
-    it("it shouldn't take any other town except CA CN CL ", function () {
+    it("it only accept valid towns like CapeTown, Wellington and Stellenbosch", function () {
         var input =  RegFactory();
         input.addRegNumbers ("CY 433 ");
        
