@@ -8,40 +8,34 @@ var regstorage = JSON.parse(localStorage.getItem("plate"));
 var regFactoryInstance = RegFactory();
 
 function clearError() {
-	setTimeout(function () {
-		errorMessage.innerHTML = "";
-	}, 2000);
+    setTimeout(function () {
+        errorMessage.innerHTML = "";
+    }, 2000);
 }
 
 function regElement() {
-    
+
 
     var regNumbersElement = document.querySelector(".numberPlates");
-    
+
 
     var regNumber = document.querySelector(".regName").value
-    
+
     regNumber = regNumber.toUpperCase();
-    
+
 
     var didAddRegNumber = regFactoryInstance.addRegNumbers(regNumber);
     if (didAddRegNumber) {
-        
+
         let li = document.createElement('li')
         li.innerHTML = regNumber;
         regNumbersElement.appendChild(li)
 
     } else {
-       regNumbersElement.innerHTML  =regFactoryInstance.getErrorMessage()
-       clearError()
+        errorMessage.innerHTML = regFactoryInstance.getErrorMessage()
+        clearError()
     }
     localStorage.setItem("plate", JSON.stringify(regFactoryInstance.getReg()))
-
-
-
-
-
-
 
 }
 
@@ -67,12 +61,13 @@ function display() {
         newli.appendChild(li);
     }
 
-    
+
 }
+
 function resetButton() {
     localStorage.clear();
     regNumbersElement.innerHTML = "";
-   
+
 }
 
 

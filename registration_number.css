@@ -39,6 +39,11 @@
     text-align: center;
     margin: 30px auto;
   }
+  .col-6{
+    width: 96%;
+    text-align: center;
+    margin: 30px auto;
+  }
   .col-7 ul{
     list-style-type: none;
   
