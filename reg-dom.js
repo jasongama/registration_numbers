@@ -10,15 +10,19 @@ var regFactoryInstance = RegFactory();
 function clearError() {
 	setTimeout(function () {
 		errorMessage.innerHTML = "";
-	}, 1000);
+	}, 2000);
 }
 
 function regElement() {
+    
+
     var regNumbersElement = document.querySelector(".numberPlates");
     
 
     var regNumber = document.querySelector(".regName").value
+    
     regNumber = regNumber.toUpperCase();
+    
 
     var didAddRegNumber = regFactoryInstance.addRegNumbers(regNumber);
     if (didAddRegNumber) {

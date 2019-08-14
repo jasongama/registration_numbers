@@ -29,27 +29,7 @@ function RegFactory() {
             return false;
         }
         
-        
-        describe('Registration', function () {
-            it("It should pass all the registrations in a list", function () {
-                var input =  RegFactory();
-                input.addRegNumbers("CA 453 ");
-                input.addRegNumbers("CN 673 ");
-        
-                
-               
-                assert.equal(["CA 453-6731 ", "CN 453-6731 "],input.getReg() );
-        
-            });
-            // it("It should greet my name in english", function () {
-            //     var input =  RegFactory();
-            //     input.addRegNumbers(["CA1234",  "CL2345" ])
-            
-            //     assert.equal(input. filter(), "CA1234");
-        
-            // });
-        
-        });
+       
     }
 
 
@@ -72,6 +52,7 @@ function RegFactory() {
             }
 
         }
+    
         // console.log(storeNumberPlate)
         return storeNumberPlate;
     }
