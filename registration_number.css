@@ -38,6 +38,9 @@
     width: 96%;
     text-align: center;
     margin: 30px auto;
+    color: #860038;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
   }
   .col-6{
     width: 96%;
@@ -46,6 +49,7 @@
   }
   .col-7 ul{
     list-style-type: none;
+   
   
   }
    li{
@@ -54,7 +58,11 @@
    border-radius: 5px;
    justify-content: center ;
    display: inline;
-   margin-left: 2em;
+   list-style: none;
+   padding: 1em;
+   float: left;
+   margin: 6px;
+
   }
   button {
     border-radius: 5px;

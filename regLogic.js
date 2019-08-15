@@ -17,13 +17,13 @@ function RegFactory( storerage) {
                 
             } else {
                 // this is not a valid town
-                errMessage = "invalid town";
+                errMessage = "invalid Town";
             
                 return false;
             }
         } else {
             // invalid format
-            errMessage = "please add the registration number and Select a location";
+            errMessage = "Please add the registration number and Select a location";
             
             return false;
         }
