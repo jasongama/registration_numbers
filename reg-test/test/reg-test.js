@@ -42,7 +42,7 @@ describe('Registration', function () {
        
         
        
-        assert.deepEqual(  "please add the registration number and Select a location" , input.getErrorMessage());
+        assert.deepEqual(  "Please add the registration number and Select a location" , input.getErrorMessage());
 
     });
     it("it only accept valid towns like CapeTown, Wellington and Stellenbosch", function () {
@@ -52,7 +52,7 @@ describe('Registration', function () {
        
         
        
-        assert.deepEqual(  "invalid town" , input.getErrorMessage());
+        assert.deepEqual(  "Invalid Town" , input.getErrorMessage());
 
     });
  
@@ -70,7 +70,7 @@ describe('Registration', function () {
         assert.deepEqual( [ 'CL 453'] , input.filter('CL 453'));
         assert.deepEqual( [ 'CA 123'] , input.filter('CA 123'));
 
-    });
+    });KiB/s,
     
      
     it("It will show all the valid registration numbers in a list ", function () {

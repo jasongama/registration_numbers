@@ -17,7 +17,7 @@ function RegFactory( storerage) {
                 
             } else {
                 // this is not a valid town
-                errMessage = "invalid Town";
+                errMessage = "Invalid Town";
             
                 return false;
             }
