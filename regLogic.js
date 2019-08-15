@@ -1,6 +1,5 @@
-function RegFactory() {
-
-    var holdingNoPlate = [];
+function RegFactory( storerage) {
+    var holdingNoPlate = storerage || [] ;
 
     var errMessage = "";
 
@@ -44,7 +43,9 @@ function RegFactory() {
     function filter(location) {
 
         var storeNumberPlate = [];
-
+        if(location ===""){
+            return holdingNoPlate
+        }else{
         for (var i = 0; i < holdingNoPlate.length; i++) {
             var currentReg = holdingNoPlate[i]
             if (holdingNoPlate[i].startsWith(location)) {
@@ -52,6 +53,7 @@ function RegFactory() {
             }
 
         }
+    }
     
         // console.log(storeNumberPlate)
         return storeNumberPlate;

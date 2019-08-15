@@ -71,5 +71,21 @@ describe('Registration', function () {
         assert.deepEqual( [ 'CA 123'] , input.filter('CA 123'));
 
     });
+    
+     
+    it("It will show all the valid registration numbers in a list ", function () {
+        var input =  RegFactory();
+        
+        input.addRegNumbers ("CA 1236" );
+        input.addRegNumbers ("CL 1234");
+        input.addRegNumbers ("CN 3455");
+        
+        
+       
+        assert.deepEqual( [ 'CA 1236', 'CL 1234', 'CN 3455' ] , input.getReg());
+      
+
+    });
+    
    
 });
