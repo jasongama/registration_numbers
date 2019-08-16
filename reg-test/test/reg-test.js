@@ -70,7 +70,7 @@ describe('Registration', function () {
         assert.deepEqual( [ 'CL 453'] , input.filter('CL 453'));
         assert.deepEqual( [ 'CA 123'] , input.filter('CA 123'));
 
-    });KiB/s,
+    });
     
      
     it("It will show all the valid registration numbers in a list ", function () {
@@ -87,5 +87,19 @@ describe('Registration', function () {
 
     });
     
+         
+    it("It should not allow you to add the same registration twice ", function () {
+        var input =  RegFactory();
+        
+        input.addRegNumbers ("CA 1236" );
+        input.addRegNumbers ("CA 1236");
+        input.addRegNumbers ("CA 1236");
+        
+        
+       
+        assert.deepEqual( 'Registration number already exist ', input.getErrorMessage());
+      
+
+    });
    
 });

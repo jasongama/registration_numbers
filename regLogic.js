@@ -14,6 +14,9 @@ function RegFactory( storerage) {
                     holdingNoPlate.push(plate)
                     return true;
                 }
+                else{
+                    errMessage = "Registration number already exist "
+                }
                 
             } else {
                 // this is not a valid town
