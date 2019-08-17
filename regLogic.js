@@ -1,43 +1,53 @@
-function RegFactory( storerage) {
-    var holdingNoPlate = storerage || [] ;
+function RegFactory(validplate) {
+
+
+    var holdingNoPlate = validplate || [];
 
     var errMessage = "";
 
-    function addRegNumbers(plate) {
-        var regex = /[!@#$%^&*();,/.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
-        var test = regex.test(plate)
-        errMessage = "";
-        if (test === false && plate.length > 0 && plate.length > 4) {
 
-            if (plate.startsWith('CA ') || plate.startsWith("CN ") || plate.startsWith("CL ")) {
-                if (!holdingNoPlate.includes(plate)) {
-                    holdingNoPlate.push(plate)
-                    return true;
-                }
-                else{
-                    errMessage = "Registration number already exist "
-                }
-                
-            } else {
-                // this is not a valid town
-                errMessage = "Invalid Town";
-            
-                return false;
-            }
-        } else {
+    function addRegNumbers(plate) {
+
+
+
+        var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
+        let testgex = regex.test(plate)
+        var regex = /[A-Za-z]{2}\s[0-9]{3}\s[0-9]{3}/i;
+
+        let testgex1 = regex.test(plate);
+
+        var regex = /[A-Za-z]{2}\s[0-9]{5}/i;
+
+        let testgex2 = regex.test(plate);
+    
+
+        if (!testgex && !testgex1 && !testgex2) {
             // invalid format
-            errMessage = "Please add the registration number and Select a location";
-            
+            errMessage = "Please Enter A Valid Registration number"
+
             return false;
         }
-        
-       
+
+
+
+
+        if (!holdingNoPlate.includes(plate)) {
+            holdingNoPlate.push(plate)
+            return true;
+        } else {
+            // this doesn't accept duplicate
+            errMessage = "The registration number already exist";
+
+            return false;
+        }
+
+
     }
 
 
 
     function getReg() {
-
+ 
         return holdingNoPlate;
 
     }
@@ -46,9 +56,7 @@ function RegFactory( storerage) {
     function filter(location) {
 
         var storeNumberPlate = [];
-        if(location ===""){
-            return holdingNoPlate
-        }else{
+
         for (var i = 0; i < holdingNoPlate.length; i++) {
             var currentReg = holdingNoPlate[i]
             if (holdingNoPlate[i].startsWith(location)) {
@@ -56,8 +64,6 @@ function RegFactory( storerage) {
             }
 
         }
-    }
-    
         // console.log(storeNumberPlate)
         return storeNumberPlate;
     }
