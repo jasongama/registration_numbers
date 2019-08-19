@@ -96,7 +96,7 @@ describe('Registration', function () {
         assert.deepEqual( 'The registration number already exist' , input.getErrorMessage());
 
     });
-    it("It should give  you an errorMessage if the town in invalid ", function () {
+    it("It should give  you an errorMessage if the town is invalid ", function () {
         var input =  RegFactory();
         input.addRegNumbers ("Ck 67890");
  
