@@ -12,39 +12,32 @@ function RegFactory(validplate) {
 
         var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
         let testgex = regex.test(plate)
-        var regex = /[A-Za-z]{2}\s[0-9]{3}\s[0-9]{3}/i;
 
-        let testgex1 = regex.test(plate);
 
-        var regex = /[A-Za-z]{2}\s[0-9]{5}/i;
+        if (!testgex === true && plate.length > 0) {
+            if (plate.startsWith("CA ") || plate.startsWith("CN ") || plate.startsWith("CL ")) {
+                if (!holdingNoPlate.includes(plate)) {
+                    holdingNoPlate.push(plate)
+                    return true;
+                } else {
+                    // this doesn't accept duplicate
+                    errMessage = "The registration number already exist";
 
-        let testgex2 = regex.test(plate);
-    
-        var regex = /^( ?[a-zA-Z0-9]){1,9}$/i;
-        let testgex3 = regex.test(plate);
 
-        var regex =/w*[A-Z]\w*[A-Z]{2}\w*/i;
-        let testgex4 = regex.test(plate);
+                }
 
-        if (!testgex && !testgex1 && !testgex2 && !testgex3 && !testgex4  )  {
-            // invalid format
+
+
+            } else {
+                errMessage = "Invalid Town"
+
+            }
+
+        } else {
             errMessage = "Please Enter A Valid Registration number"
 
-            return false;
         }
 
-
-
-
-        if (!holdingNoPlate.includes(plate)) {
-            holdingNoPlate.push(plate)
-            return true;
-        } else {
-            // this doesn't accept duplicate
-            errMessage = "The registration number already exist";
-
-            return false;
-        }
 
 
     }
@@ -52,7 +45,7 @@ function RegFactory(validplate) {
 
 
     function getReg() {
- 
+
         return holdingNoPlate;
 
     }

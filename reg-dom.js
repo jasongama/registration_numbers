@@ -55,7 +55,7 @@ function display() {
     var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
     
     var n = regFactoryInstance.filter(RegTypeRadio.value)
-    console.log(n)
+    //console.log(n)
     for (var i = 0; i < n.length; i++) {
         var li = document.createElement('li')
         li.innerHTML = n[i];

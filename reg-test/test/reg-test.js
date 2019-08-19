@@ -1,20 +1,15 @@
 describe('Registration', function () {
-    it("It should accept all the registrations that user is entering ", function () {
-        var input =  RegFactory();
-        input.addRegNumbers ("CA 12355");
-        input.addRegNumbers ("CN 43333");
-        input.addRegNumbers ("CL 45374");
-        input.addRegNumbers ("CK 45386");
-        input.addRegNumbers ("CY 45264");
-        
+    it("it should be able to assign the list of registration numbers ", function () {
+        var input =  RegFactory(["CA 12345", "CL 12345", "CN 45535"]);
        
-        assert.deepEqual( [ 'CA 12355', 'CN 43333',"CL 45374", "CK 45386", "CY 45264" ], input.getReg());
+        assert.deepEqual(  ["CA 12345", "CL 12345", "CN 45535"] , input.getReg());
 
     });
    
     it("It should show the registration numbers that startWith CL, when the filter button is clicked.", function () {
         var input =  RegFactory();
         input.addRegNumbers ("CA 12364");
+        
         input.addRegNumbers ("CN 43398");
         input.addRegNumbers ("CL 453436");
         input.addRegNumbers ("CL 101111");
@@ -38,17 +33,12 @@ describe('Registration', function () {
     });
     it("It should give you an errormessange, when you try to add a empty string", function () {
         var input =  RegFactory();
-        input.addRegNumbers (" ");
-        assert.deepEqual(  "Please Enter A Valid Registration number" , input.getErrorMessage());
+        input.addRegNumbers ("");
+        assert.deepEqual(  'Please Enter A Valid Registration number' , input.getErrorMessage());
 
     });
 
-    it("it should be able to assign the list of registration numbers ", function () {
-        var input =  RegFactory(["CA 12345", "CL 12345", "CN 45535"]);
-       
-        assert.deepEqual(  ["CA 12345", "CL 12345", "CN 45535"] , input.getReg());
 
-    });
  
  
     it("It should show all the registration numbers from cape town. ", function () {
@@ -104,6 +94,15 @@ describe('Registration', function () {
         
        
         assert.deepEqual( 'The registration number already exist' , input.getErrorMessage());
+
+    });
+    it("It should give  you an errorMessage if the town in invalid ", function () {
+        var input =  RegFactory();
+        input.addRegNumbers ("Ck 67890");
+ 
+        
+       
+        assert.deepEqual( 'Invalid Town' , input.getErrorMessage());
 
     });
   
