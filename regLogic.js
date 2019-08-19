@@ -20,8 +20,13 @@ function RegFactory(validplate) {
 
         let testgex2 = regex.test(plate);
     
+        var regex = /^( ?[a-zA-Z0-9]){1,9}$/i;
+        let testgex3 = regex.test(plate);
 
-        if (!testgex && !testgex1 && !testgex2) {
+        var regex =/w*[A-Z]\w*[A-Z]{2}\w*/i;
+        let testgex4 = regex.test(plate);
+
+        if (!testgex && !testgex1 && !testgex2 && !testgex3 && !testgex4  )  {
             // invalid format
             errMessage = "Please Enter A Valid Registration number"
 
