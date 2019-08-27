@@ -2,13 +2,13 @@ var showButton = document.querySelector(".showRegButton")
 addButton = document.querySelector("#regAddButton")
 var resetButton = document.querySelector(".regResetButton")
 var regNumber = document.querySelector(".regTempName")
-var regNumbersElement = document.querySelector(".plateHolder");
+var regTempNumberElement = document.querySelector(".plateHolder");
 var myError = document.querySelector(".message");
 var regValues = RegFactory();
 var regstorage = JSON.parse(localStorage.getItem("plate"));
 
 var regFact = RegFactory(regstorage);
-display();
+displaytemp();
 function clearError() {
     setTimeout(function () {
         myError.innerHTML = "";
@@ -16,7 +16,7 @@ function clearError() {
 }
 
 
-function regElement() {
+function tempReg() {
 
 
     var regNumbersElement = document.querySelector(".plateHolder");
@@ -46,7 +46,7 @@ function regElement() {
 
 
 
-function display() {
+function displaytemp() {
 
     var newli = document.querySelector(".plateHolder");
 
@@ -70,12 +70,12 @@ function display() {
 
 
 
-function resetsButton() {
+function reset() {
     location.reload
     localStorage.clear();
-    regNumbersElement.innerHTML = "";
+    regTempNumberElement.innerHTML = "";
 }
-resetButton.addEventListener("click", resetsButton)
-addButton.addEventListener("click", regElement)
+resetButton.addEventListener("click", reset)
+addButton.addEventListener("click", tempReg)
 
-showButton.addEventListener("click", display)
+showButton.addEventListener("click", displaytemp)

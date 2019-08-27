@@ -53,9 +53,8 @@ function display() {
         newli.innerHTML = "";
     }
 
-    var RegTypeRadio = document.querySelector
-    ("input[name=regNumber]:checked");
-    
+    var RegTypeRadio = document.querySelector ("input[name=regNumber]:checked");
+
     var n = regFactoryInstance.filter(RegTypeRadio.value)
     //console.log(n)
     for (var i = 0; i < n.length; i++) {
