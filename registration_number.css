@@ -5,14 +5,14 @@
     --shadow: 0 1px 5px rgba(104,104,104, 0.8);
     }
 
-    h1{
+    /* h1{
         border: 5px solid black;
         width: 600px;
         margin: 60px auto;
        text-align: center;
        font-family: Arial, Helvetica, sans-serif;
        
-   }
+   } */
    
 .col-11 {
     width: 96%;
@@ -42,7 +42,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
   }
-  .col-6{
+  .col-5{
     width: 96%;
     text-align: center;
     margin: 30px auto;

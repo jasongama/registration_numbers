@@ -9,7 +9,7 @@ var regstorage = JSON.parse(localStorage.getItem("plate"));
 
 var regFactoryInstance = RegFactory(regstorage);
 display();
-function clearError() {
+function clear2() {
     setTimeout(function () {
         errorMessage.innerHTML = "";
     }, 2000);
@@ -35,11 +35,12 @@ function regElement() {
 
     } else {
         errorMessage.innerHTML = regFactoryInstance.getErrorMessage()
-        clearError()
+        clear2()
     }
     localStorage.setItem("plate", JSON.stringify(regFactoryInstance.getReg()))
 
 }
+
 
 
 
@@ -52,7 +53,8 @@ function display() {
         newli.innerHTML = "";
     }
 
-    var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
+    var RegTypeRadio = document.querySelector
+    ("input[name=regNumber]:checked");
     
     var n = regFactoryInstance.filter(RegTypeRadio.value)
     //console.log(n)

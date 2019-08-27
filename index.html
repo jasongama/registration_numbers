@@ -7,12 +7,23 @@
     <title>registration_number</title>
     <link href="simple-grid.css" rel="stylesheet" type="text/css">
     <link href="registration_number.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script type="text/x-template" class="userTemplate">
+
+        {{#each registartion Numbers}}
+      <tr>
+        <td>{{plateHolder}}</td>
+       </tr>
+        {{/each}}
+  </script>
+    
    
     
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="col-6">
     <h1>Registration Numbers</h1>
     <div class="col-7">
     </div>
@@ -39,50 +50,54 @@
      </div>
   
 
-     <div class="col-6">
+     <div class="col-5">
      <ul class="numberPlates"></ul>
     </div>
- 
-
+   
     </div>
     </div>
      <!-- Registration with template  -->
 
      <div class="container">
-        <div class="row">
+        <div class="col-6">
     <h1>Registration Numbers</h1>
-    <div class="col-7">
+    <div class="message">
     </div>
     
      <div class ="col-11">Enter the registration number
          
-        <input type="text" class="regName"  placeholder="eg CA 1235" name="" value="" id="field_1"  maxlength= 10 > 
+        <input type="text" class="regTempName"  placeholder="eg CA 1235" name="" value="" id="regField"  maxlength= 10 > 
     </div>
     <div class = "col-10">
-            <button id="addButton" type="button" name="Add" value="add">Add</button>
-            <button class="resetButton" type="button" name="reset" value="Show">Reset</button>
+            <button id="regAddButton" type="button" name="regAdd" value="regAdd">Add</button>
+            <button class="regResetButton" type="button" name="regReset" value="Show">Reset</button>
      </div>
 
      <div class = "col-9">
-        <input type="radio" name="regNumber" class="RegTypeRadio" value="CA" id="id">CapeTown
-        <input type="radio" name="regNumber" class="RegTypeRadio" value="CN" id="id">Wellington
-        <input type="radio" name="regNumber" class="RegTypeRadio" value="CL" id="id">Stellenbosch
-        <input type="radio" name="regNumber" class="RegTypeRadio" Value="" id="id" checked>SelectAll
+        <input type="radio" name="regTempNumber" class="RegTempTypeRadio" value="CA" id="regtemp">CapeTown
+        <input type="radio" name="regTempNumber" class="RegTempTypeRadio" value="CN" id="regtemp">Wellington
+        <input type="radio" name="regTempNumber" class="RegTempTypeRadio" value="CL" id="regtemp">Stellenbosch
+        <input type="radio" name="regTempNumber" class="RegTempTypeRadio" Value="" id="regtemp" checked>SelectAll
 
      </div>
   
      <div class ="col-8">
-            <button class="showButton" type="button" name="show" value="Show">FILTER</button>
+            <button class="showRegButton" type="button" name="show" value="ShowReg">FILTER</button>
      </div>
   
 
-     <div class="col-6">
-     <ul class="numberPlates"></ul>
+     <div class="col-5">
+     <table>
+        <tbody class = "plateHolder">
+
+        </tbody>
+      </table>
     </div>
  
-
+ </div>
      <script src="regLogic.js"></script>
     <script src="reg-dom.js"></script>
+    <script src="regWithTemp.js"></script>
     
 </body>
 </html>
