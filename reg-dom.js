@@ -4,11 +4,13 @@ var resetButton = document.querySelector(".resetButton")
 var regNumber = document.querySelector(".regName")
 var regNumbersElement = document.querySelector(".numberPlates");
 var errorMessage = document.querySelector(".col-7");
-var regValues = RegFactory();
+
 var regstorage = JSON.parse(localStorage.getItem("plate"));
+
 
 var regFactoryInstance = RegFactory(regstorage);
 display();
+
 function clear2() {
     setTimeout(function () {
         errorMessage.innerHTML = "";
@@ -20,7 +22,7 @@ function regElement() {
 
     var regNumbersElement = document.querySelector(".numberPlates");
 
-    
+
     var regNumber = document.querySelector(".regName").value
 
     regNumber = regNumber.toUpperCase();
@@ -53,7 +55,7 @@ function display() {
         newli.innerHTML = "";
     }
 
-    var RegTypeRadio = document.querySelector ("input[name=regNumber]:checked");
+    var RegTypeRadio = document.querySelector("input[name=regNumber]:checked");
 
     var n = regFactoryInstance.filter(RegTypeRadio.value)
     //console.log(n)
@@ -70,7 +72,7 @@ function display() {
 
 
 function resetsButton() {
-    location.reload
+    location.reload()
     localStorage.clear();
     regNumbersElement.innerHTML = "";
 }

@@ -71,7 +71,7 @@ function displaytemp() {
 
 
 function reset() {
-    location.reload
+    location.reload()
     localStorage.clear();
     regTempNumberElement.innerHTML = "";
 }
