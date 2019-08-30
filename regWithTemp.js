@@ -5,8 +5,8 @@ var regNumber = document.querySelector(".regTempName")
 var regTempNumberElement = document.querySelector(".plateHolder");
 var myError = document.querySelector(".message");
 var regValues = RegFactory();
-var regstorage = JSON.parse(localStorage.getItem("plate"));
-var regTempStorage = JSON.parse(regstorage);
+var regTempstorage = JSON.parse(localStorage.getItem("plate"));
+
 var regFact = RegFactory(regstorage);
 displaytemp();
 function clearError() {
